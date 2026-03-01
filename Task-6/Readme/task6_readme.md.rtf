@@ -1,0 +1,66 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2865
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Task 6: S3 Replication and Lifecycle Policy\
+\
+## Objective\
+To configure Amazon S3 Replication and Lifecycle rules in order to understand backup strategy and cost optimization in AWS.\
+\
+---\
+\
+## Services Used\
+- Amazon S3\
+- S3 Versioning\
+- S3 Cross-Region Replication\
+- S3 Lifecycle Policy\
+- IAM Role (Auto-created)\
+\
+---\
+\
+## Steps Performed\
+\
+### 1\uc0\u65039 \u8419  Created Two S3 Buckets\
+- Source Bucket: task6-source-<yourname>\
+- Destination Bucket: task6-destination-<yourname>\
+- Buckets created in different AWS Regions.\
+\
+---\
+\
+### 2\uc0\u65039 \u8419  Enabled Versioning\
+- Enabled Versioning on both Source and Destination buckets.\
+- Versioning is mandatory for enabling replication.\
+\
+---\
+\
+### 3\uc0\u65039 \u8419  Configured Replication\
+- Created replication rule in Source bucket.\
+- Selected destination bucket in same AWS account.\
+- Allowed AWS to create a new IAM role automatically.\
+- Replication rule status: **Enabled**.\
+- Tested by uploading a file and verified replication in destination bucket.\
+\
+---\
+\
+### 4\uc0\u65039 \u8419  Configured Lifecycle Policy\
+Created lifecycle rule with following configuration:\
+\
+- Transition to Standard-IA after 30 days.\
+- Transition to Glacier Flexible Retrieval after 60 days.\
+- Expire (Delete) objects after 365 days.\
+\
+Lifecycle rule status: **Enabled**.\
+\
+---\
+\
+## Result\
+- Objects uploaded to source bucket are automatically replicated to destination bucket.\
+- Lifecycle policy ensures automatic cost optimization by transitioning storage classes and deleting old data.\
+\
+---\
+\
+## Conclusion\
+Successfully implemented S3 Replication and Lifecycle Policy demonstrating backup strategy and storage cost optimization in AWS.}
